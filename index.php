@@ -1,12 +1,25 @@
 <?php
 
-// Oggi pomeriggio ripassate i primi concetti di classe, variabili e metodi d’istanza che abbiamo visto stamattina e create un file index.php in cui è definita una classe Production che rappresenta una produzione cinematografica / televisiva.
-// All’interno della classe dovrete gestire un titolo, una lingua e un voto (su una scala da 1 a 10).
-// La classe deve avere le sue variabili d’istanza, il costruttore e i metodi.
-// Istanziate poi almeno due oggetti Production e stampate in pagina i loro valori, con un layout a vostro piacere.
+
+
+// Aggiungete al lavoro di ieri le classi Movie e TVSerie
+// La classe Movie gestisce due proprietà: profitti e durata.
+// La classe TVSerie gestisce il numero di stagioni.
+// Facciamo in modo che Movie e TVSerie ereditino le proprietà di base dalla classe Production.
+// Creiamo delle istanze di Movie e TVSerie e stampiamo le informazioni in pagina.
+// P.S.
+// Sentitevi liberi di aggiungere altre proprietà / metodi alle classi Movie e TVSerie.
+// BONUS
+// Facciamo in modo che la classe Production accetti più di un genere.
+// Rendiamo il parametro dei generi opzionale, impostando un valore di default nel caso non venga passato al costruttore
+
+
+include_once __DIR__ . '/TVSerie.php';
+include_once __DIR__ . '/Movie.php';
 
 class Production
 {
+
     public $titolo;
     public $lingua;
     public $voto;
@@ -32,6 +45,8 @@ $signoreDegliAnelli = new Production('Signore Degli Anelli', 'Italiano', 10, 'ht
 $slime = new Production('Tensei Shitara No Slime Datta Ken', 'Giapponese', 10, 'https://www.animeclick.it/immagini/anime/Tensei_Shitara_Slime_Datta_Ken/cover/Tensei_Shitara_Slime_Datta_Ken-cover.jpg');
 $onePiece = new Production('One Piece', 'Giapponese', 10, 'https://www.starcomics.com/files/immagini/fumetti-cover/onepiece-ne-100-1200px');
 $bleach = new Production('Bleach', 'Giapponese', 10, 'https://upload.wikimedia.org/wikipedia/en/7/72/Bleachanime.png');
+$vikings = new TVSerie('Vikings', 'Inglese', 10, 'https://m.media-amazon.com/images/I/91JrGLeOGgL._AC_UF1000,1000_QL80_DpWeblab_.jpg', 6);
+$fightClub = new Movie('Signore Degli Anelli', 'Italiano', 10, 'https://m.media-amazon.com/images/I/71QPnEkXygS._AC_UF1000,1000_QL80_.jpg', '3 miliardi', '2 ore');
 
 ?>
 
@@ -105,6 +120,40 @@ $bleach = new Production('Bleach', 'Giapponese', 10, 'https://upload.wikimedia.o
                 <br>
                 <span><?= $signoreDegliAnelli->voto ?></span>
                 <br>
+            </div>
+        </div>
+        <!-- card 5 -->
+        <div>
+            <div>
+                <img src="<?= $vikings->img ?>" alt="nessuna immagine :(">
+            </div>
+            <div>
+                <h1>
+                    <?= $vikings->titolo ?>
+                </h1>
+                <span><?= $vikings->lingua ?></span>
+                <br>
+                <span><?= $vikings->voto ?></span>
+                <br>
+                <span><?= $vikings->stagioni ?></span>
+            </div>
+        </div>
+        <!-- card 6 -->
+        <div>
+            <div>
+                <img src="<?= $fightClub->img ?>" alt="nessuna immagine :(">
+            </div>
+            <div>
+                <h1>
+                    <?= $fightClub->titolo ?>
+                </h1>
+                <span><?= $fightClub->lingua ?></span>
+                <br>
+                <span><?= $fightClub->voto ?></span>
+                <br>
+                <span><?= $fightClub->profitti ?></span>
+                <br>
+                <span><?= $fightClub->durata ?></span>
             </div>
         </div>
     </main>
